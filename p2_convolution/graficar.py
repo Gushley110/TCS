@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 
 def graficar(matriz_r, origen, h, origenH, g, origenG, tipo=0):
 
-	print("H: ", type(h[0]), " Origen h", type(origenH))
-	print("Tipo matriz: ", type(matriz_r))
-
 	if(tipo == 2):
 		tamanio = len(matriz_r)
 	else:

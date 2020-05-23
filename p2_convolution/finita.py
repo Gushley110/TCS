@@ -42,25 +42,25 @@ def convolucion_finita(sh,osh,sg,osg):
 			for fil in range(0,tam_matriz):
 				if fil < tam_muestras_h and col == 0:
 					temp_fraccion = muestras_signal_h[fil].split("/")
-					print("Temporal 1")
-					print(temp_fraccion)
+					#print("Temporal 1")
+					#print(temp_fraccion)
 					if len(temp_fraccion) == 2:
 						matriz_a[fil,col] = float(temp_fraccion[0])/float(temp_fraccion[1])
 					else:
-						matriz_a[fil,col] = float(muestras_signal_h[fil])
+						matriz_a[fil,col] = muestras_signal_h[fil]
 				elif fil > tam_muestras_h and col == 0:
 					matriz_a[fil,col] = 0
 				elif col > 0 and fil == 0:
 
 					matriz_a[fil,col] = float(matriz_a[tam_matriz-1,col-1])
 				elif col > 0 and fil > 0:
-					matriz_a[fil,col] = matriz_a[fil-1 ,col-1]
+					matriz_a[fil,col] = float(matriz_a[fil-1 ,col-1])
 		for col in range(0,1):
 			for fil in range(0,tam_matriz):
 				if fil < tam_muestras_g and col == 0:
 					temp_fraccion = muestras_signal_g[fil].split("/")
-					print("Temporal 2")
-					print(temp_fraccion)
+					#print("Temporal 2")
+					#print(temp_fraccion)
 					if len(temp_fraccion) == 2:
 						matriz_b[fil,col] = float(temp_fraccion[0])/float(temp_fraccion[1])
 					else:
@@ -80,8 +80,8 @@ def convolucion_finita(sh,osh,sg,osg):
 			for fil in range(0,tam_matriz):
 				if fil < tam_muestras_g and col == 0:
 					temp_fraccion = muestras_signal_g[fil].split("/")
-					print("Temporal 1")
-					print(temp_fraccion)
+					#print("Temporal 1")
+					#print(temp_fraccion)
 					if len(temp_fraccion) == 2:
 						matriz_a[fil,col] = float(temp_fraccion[0])/float(temp_fraccion[1])
 					else:
@@ -96,8 +96,8 @@ def convolucion_finita(sh,osh,sg,osg):
 			for fil in range(0,tam_matriz):
 				if fil < tam_muestras_h and col == 0:
 					temp_fraccion = muestras_signal_h[fil].split("/")
-					print("Temporal 1")
-					print(temp_fraccion)
+					#print("Temporal 1")
+					#print(temp_fraccion)
 					if len(temp_fraccion) == 2:
 						matriz_b[fil,col] = float(temp_fraccion[0])/float(temp_fraccion[1])
 					else:
@@ -112,6 +112,6 @@ def convolucion_finita(sh,osh,sg,osg):
 		print("g(x)*h(x)= ")
 
 	print(matriz_r)
-	print("Con origen en la posición: "+str(position_origin_final) + "con dato: " + str(matriz_r[position_origin_final-1,0]))
+	print("Origen[" + str(position_origin_final) + "] = " + str(matriz_r[position_origin_final-1,0]))
 
 	graficar(matriz_r, position_origin_final, muestras_signal_h, origin_signal_h, muestras_signal_g, origin_signal_g, tipo=0)

@@ -29,7 +29,7 @@ from circular import convolucion_circular
 def realizar_convolucion_finita():
 	print("Debug")
 	print("h(x): %s\ng(x): %s" % (signal_h.get(), signal_g.get()))
-	print("Origen h(x): %s & origen g(x): %s" % (origin_signal_h.get(), origin_signal_g.get()))
+	print("Posiciones de Origen h(x): %s & origen g(x): %s" % (origin_signal_h.get(), origin_signal_g.get()))
 	convolucion_finita(signal_h.get(),origin_signal_h.get(),signal_g.get(),origin_signal_g.get())
 
 def realizar_convolucion_periodica():

@@ -84,7 +84,7 @@ def convolucion_periodica(sh,osh,sg,osg):
 		for r in range(0,tam_matriz):								
 			for c in range(0,1):									
 				for k in range(0,tam_matriz):
-					matriz_r[r,c] += matriz_b[r,k] *  matriz_a[k,c]
+					matriz_r[r,c] += matriz_a[r,k] *  matriz_b[k,c]
 		print("g(x)*h(x)= ")
 	print(matriz_r)
 	print("l="+str(len(matriz_r)))

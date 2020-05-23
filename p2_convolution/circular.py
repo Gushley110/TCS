@@ -58,7 +58,7 @@ def convolucion_circular(sh,osh,sg,osg):
 			# Agrega 0's a la derecha del arreglo para las sumas
 			for j in range(0,periodo_g-(i+1)):
 				op_multi[i].append(0.0)
-		print(op_multi)
+		#print(op_multi)
 		# Crear el arreglo de la operacion resultante y  Realiza las sumas del arreglo de multiplicaciones
 		for i in range(0,(tam_muestras_g+tam_muestras_h)-1):
 			op_res.append(0.0)
@@ -66,8 +66,8 @@ def convolucion_circular(sh,osh,sg,osg):
 		for i in range(0,len(op_res)):
 			for j in range(0,len(op_multi)):
 				op_res[i] = op_res[i] + op_multi[j][i]
-		print("h(x)*g(x)= ")
-		print(op_res)
+		#print("h(x)*g(x)= ")
+		#print(op_res)
 		#Despues parte el arreglo tomando el numero del periodo mas grande y agregandole tantos 0's como sea necesario al que quedo mas pequeño
 		for i in range(0,len(op_res)):
 			if i<periodo_h:
@@ -77,12 +77,14 @@ def convolucion_circular(sh,osh,sg,osg):
 		for i in range(0,len(op_a)-len(op_b)):
 			op_b.append(0.0)
 		# Realiza la suma
-		print(op_a)
-		print(op_b)
+		#print(op_a)
+		#print(op_b)
 		for i in range(0,periodo_h):
 			op_r.append(op_a[i] + op_b[i])
-		print(op_r)
 		print("h(x)*g(x)= ")
+		print(op_r)
+		origen = position_origin_final % len(op_r)
+		print('Origen: ', op_r[origen - 1])
 	else:
 		print("Se realizara la convolución de g(x)*h(x)")
 		# crea el arreglo para la operacion de multiplicacion
@@ -106,8 +108,8 @@ def convolucion_circular(sh,osh,sg,osg):
 		for i in range(0,len(op_res)):
 			for j in range(0,len(op_multi)):
 				op_res[i] = op_res[i] + op_multi[j][i]
-		print("g(x)*h(x)= ")
-		print(op_res)
+		#print("g(x)*h(x)= ")
+		#print(op_res)
 		#Despues parte el arreglo tomando el numero del periodo mas grande y agregandole tantos 0's como sea necesario al que quedo mas pequeño
 		for i in range(0,len(op_res)):
 			if i<periodo_g:
@@ -117,11 +119,14 @@ def convolucion_circular(sh,osh,sg,osg):
 		for i in range(0,len(op_a)-len(op_b)):
 			op_b.append(0.0)
 		# Realiza la suma
-		print(op_a)
-		print(op_b)
+		#print(op_a)
+		#print(op_b)
 		for i in range(0,periodo_g):
 			op_r.append(op_a[i] + op_b[i])
-		print(op_r)
 		print("g(x)*h(x)= ")
+		print(op_r)
+		origen = position_origin_final % len(op_r)
+		print('Origen: ', op_r[origen - 1])
+		
 
 	graficar(op_r, position_origin_final, muestras_signal_h, origin_signal_h, muestras_signal_g, origin_signal_g, tipo=2)
